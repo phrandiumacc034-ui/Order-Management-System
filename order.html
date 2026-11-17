@@ -1,0 +1,287 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ProfitTrack | Sales Dashboard</title>
+
+    <link rel="stylesheet" href="order.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <span class="logo-icon">P</span>
+                <h2>ProfitTrack</h2>
+            </div>
+
+            <p class="menu-title">MAIN MENU</p>
+
+            <nav>
+                <a href="#" class="active">
+                    <span>▦</span> Dashboard
+                </a>
+
+                <a href="#">
+                    <span>▤</span> Orders
+                </a>
+
+                <a href="#">
+                    <span>◈</span> Products
+                </a>
+
+                <a href="#">
+                    <span>♙</span> Customers
+                </a>
+
+                <a href="#">
+                    <span>▥</span> Reports
+                </a>
+            </nav>
+
+            <p class="menu-title settings-title">PREFERENCES</p>
+
+            <nav>
+                <a href="#">
+                    <span>⚙</span> Settings
+                </a>
+
+                <a href="#">
+                    <span>?</span> Help Centre
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="profile">
+                    <div class="profile-icon">ED</div>
+
+                    <div>
+                        <h4>Admin User</h4>
+                        <p>Administrator</p>
+                    </div>
+                </div>
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- TOP NAVIGATION -->
+            <header class="topbar">
+
+                <div>
+                    <h2>Dashboard Overview</h2>
+                    <p>Welcome back! Here's what's happening with your store.</p>
+                </div>
+
+                <div class="top-right">
+                    <button class="notification">♧</button>
+
+                    <div class="top-profile">
+                        <div class="profile-icon">ED</div>
+
+                        <div>
+                            <h4>Admin User</h4>
+                            <p>Administrator</p>
+                        </div>
+                    </div>
+                </div>
+
+            </header>
+
+
+            <!-- PAGE CONTENT -->
+            <section class="dashboard-content">
+
+                <div class="page-heading">
+                    <div>
+                        <h1>Sales Overview</h1>
+                        <p>Monitor your business performance and earnings.</p>
+                    </div>
+
+                    <button class="date-button">▣ &nbsp; November 2026</button>
+                </div>
+
+
+                
+<!-- OVERVIEW CARDS -->
+
+<div class="overview">
+
+    <div class="overview-card">
+
+        <div class="card-top">
+            <span class="card-icon blue">$</span>
+            <span class="card-label">TODAY'S SALES</span>
+        </div>
+
+        <h2 id="todaySales">$0</h2>
+
+        <p class="positive">Successful orders today</p>
+
+    </div>
+
+
+    <div class="overview-card">
+
+        <div class="card-top">
+            <span class="card-icon green">↗</span>
+            <span class="card-label">TODAY'S PROFIT</span>
+        </div>
+
+        <h2 id="todayProfit">$0</h2>
+
+        <p class="positive">Sales minus product costs</p>
+
+    </div>
+
+
+    <div class="overview-card">
+
+        <div class="card-top">
+            <span class="card-icon orange">▤</span>
+            <span class="card-label">TOTAL ORDERS</span>
+        </div>
+
+        <h2 id="totalOrders">0</h2>
+
+        <p class="positive">All recorded orders</p>
+
+    </div>
+
+
+    <div class="overview-card">
+
+        <div class="card-top">
+            <span class="card-icon purple">♙</span>
+            <span class="card-label">REGISTERED USERS</span>
+        </div>
+
+        <h2 id="registeredUsers">0</h2>
+
+        <p class="positive">Unique customers</p>
+
+    </div>
+
+</div>
+
+
+
+                <!-- CHART SECTION -->
+                <div class="chart-section">
+
+                    <div class="chart-box sales-box">
+
+                        <div class="section-heading">
+                            <div>
+                                <h3>Sales Performance</h3>
+                                <p>Monthly revenue overview</p>
+                            </div>
+
+                            <select>
+                                <option>Last 6 Months</option>
+                                <option>This Year</option>
+                            </select>
+                        </div>
+
+                        <div class="chart-area">
+                            <canvas id="salesChart"></canvas>
+                        </div>
+
+                    </div>
+
+
+                    <div class="chart-box order-box">
+
+                        <div class="section-heading">
+                            <div>
+                                <h3>Order Statistics</h3>
+                                <p>Order status breakdown</p>
+                            </div>
+                        </div>
+
+                        <div class="pie-area">
+                            <canvas id="orderChart"></canvas>
+                        </div>
+
+                        <div class="chart-legend">
+                            <span><i class="successful"></i> Successful</span>
+                            <span><i class="pending"></i> Pending</span>
+                            <span><i class="cancelled"></i> Cancelled</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LATEST ORDERS -->
+                <section class="orders-section">
+
+                    <div class="orders-heading">
+
+                        <div>
+                            <h3>Latest Orders</h3>
+                            <p>Track your recent customer transactions.</p>
+                        </div>
+
+                        <button class="view-button">View All Orders →</button>
+
+                    </div>
+
+
+                    <div class="table-container">
+
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>ORDER ID</th>
+                                    <th>PRODUCT</th>
+                                    <th>CUSTOMER NAME</th>
+                                    <th>DATE</th>
+                                    <th>PRICE</th>
+                                    <th>STATUS</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="orderList">
+                                <!-- JavaScript will insert orders here -->
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+
+                <!-- FOOTER -->
+                <footer>
+                    <p>© 2026 ProfitTrack. All rights reserved.</p>
+                    <p>Sales and Business Management Dashboard</p>
+                </footer>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="order.js"></script>
+
+</body>
+</html>
